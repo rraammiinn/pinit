@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pinit"
+version = "0.0.1"
+description = "an application for creating shortcut for apps and scripts in linux"
+authors = ["ramin <ramin.kishani.farahani@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/rraammiinn/pinit.git"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pinit = "pinit.main:main"

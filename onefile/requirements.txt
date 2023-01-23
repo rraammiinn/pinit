@@ -1,0 +1,2 @@
+Eel==0.15.1
+desktop-file==1.3
