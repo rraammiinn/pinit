@@ -222,7 +222,7 @@ bottom: 1rem;
 
 * ::-webkit-scrollbar-thumb
 {
-	background-color: #F90;	
+	background-color: #ffe767;	
 	background-image: -webkit-linear-gradient(45deg,
 	                                          rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
@@ -244,6 +244,9 @@ bottom: 1rem;
 #c.dark * ::-webkit-scrollbar
 {
 	background-color: rgba(0,0,0,0);
+}
+#c.dark .sp{
+  color: #ffe767;
 }
 </style>
 

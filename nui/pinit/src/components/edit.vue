@@ -24,7 +24,7 @@
 
 </div>
 <div class="ddd">
-  <div class="ddddd"><p class="p">icon :</p><it-button @click="selectIcon()" variant="primary" size="small"><template #icon><span class="material-symbols-outlined">image</span></template></it-button></div>
+  <div class="ddddd"><p class="p">icon :</p><it-button  @click="selectIcon()" variant="primary" size="small"><template #icon><span class="material-symbols-outlined">image</span></template></it-button></div>
   <div class="ddddd"><p class="p">terminal ?</p><it-switch v-model="Terminal"></it-switch></div>
   <div class="dcc">
     <div class="dc">
@@ -46,8 +46,8 @@
 </it-popover>
 
     </div>
-    <div class="dc"><it-button outlined @click="clean()" variant="primary" ><template #icon><span class="material-symbols-outlined">cancel</span></template></it-button></div>
-    <div class="dc"><it-button @click="change()" :variant="varient" pulse><template #icon><span class="material-symbols-outlined">task_alt</span></template></it-button></div>
+    <div class="dc"><it-button  outlined @click="clean()" variant="primary" ><template #icon><span class="material-symbols-outlined">cancel</span></template></it-button></div>
+    <div class="dc"><it-button  @click="change()" :variant="varient" pulse><template #icon><span class="material-symbols-outlined">task_alt</span></template></it-button></div>
 </div>
 </div>
 </template>
@@ -114,7 +114,7 @@ div.scrollmenu {
 
 .scrollmenu::-webkit-scrollbar-thumb
 {
-	background-color: #F90;	
+	background-color: #ffe767;	
 	background-image: -webkit-linear-gradient(45deg,
 	                                          rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
@@ -183,7 +183,7 @@ p{
 
 .d::-webkit-scrollbar-thumb
 {
-	background-color: #F90;	
+	background-color: #ffe767;	
 	background-image: -webkit-linear-gradient(45deg,
 	                                          rgba(255, 255, 255, .2) 25%,
 											  transparent 25%,
@@ -255,12 +255,12 @@ p{
 }
 
 .spn{
-  color: crimson;
+  color: crimson !important;
 }
 
 .spn:hover{
-  color: gold;
-  padding-bottom: .1rem;  
+  color: gold !important;
+  padding-bottom: .1rem ;
 
 }
 

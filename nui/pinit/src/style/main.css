@@ -7,3 +7,14 @@
 :root{
     font-size: 16px;
 }
+#c.dark *{
+    color: #ffe767;
+}
+
+.bg-yellow-500 {
+    background-color: #622c00;
+}
+
+#c.dark span.bg-white {
+    background-color: #ffe767;
+}

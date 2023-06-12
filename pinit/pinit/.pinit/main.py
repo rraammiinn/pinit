@@ -228,4 +228,17 @@ def loadDesktop():
 ########################################################################################################
 
 if __name__ == "__main__":
+    try:
+        os.makedirs(f"{home}/.pinit/ui/menu")
+    except:
+        pass
+    try:
+        os.makedirs(f"{home}/.pinit/ui/desktop")
+    except:
+        pass
+    try:
+        os.makedirs(f"{home}/.pinit/ui/icons")
+    except:
+        pass
+
     eel.start("index.html", size=(300, 690), position=(800, 200))

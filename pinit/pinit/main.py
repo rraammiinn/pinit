@@ -37,6 +37,7 @@ def install():
 
 
 
+
 def upgrade():
     if '--force' in sys.argv or '-f' in sys.argv:
         subprocess.run(['pip', 'install', '--upgrade', 'pinit'])
@@ -60,9 +61,7 @@ def open():
         os.chdir(dist)
         subprocess.run(['venv/bin/python', 'main.py'])
     except:
-        install()
-        os.chdir(dist)
-        subprocess.run(['venv/bin/python', 'main.py'])
+        print("pinit is not installed .\nrun 'pinit install' command to install it.")
 
 
 def help():
