@@ -61,8 +61,7 @@ def open():
         os.chdir(dist)
         subprocess.run(['venv/bin/python', 'main.py'])
     except:
-        print("pinit is not installed .\nrun 'pinit install' command to install it.")
-
+        pass
 
 def help():
     print('commands .........................................')

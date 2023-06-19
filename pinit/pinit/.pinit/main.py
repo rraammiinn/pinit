@@ -65,6 +65,8 @@ def make(
     categories,
     places,
     argv,
+    comment,
+    getPermissions
 ):
     runners["python"] = (
         interpreterPath.removesuffix("/bin") + "/bin/python"
@@ -83,6 +85,7 @@ def make(
             icon=iconPath,
             terminal=is_terminal,
             categories=categories,
+            comment=comment
         )
     if "desktop" in places:
         createDesktopShortCut(
@@ -91,7 +94,14 @@ def make(
             icon=iconPath,
             terminal=is_terminal,
             categories=categories,
+            comment=comment
         )
+
+    if getPermissions:
+        try:
+            subprocess.run(['chmod', 'a+rwx', filePath])
+        except:
+            pass
 
 
 ########################################################################################################

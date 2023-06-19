@@ -17,6 +17,11 @@
   <div class="i argv">
     <it-input v-model="argv" label-top="argv" placeholder="argv" mask><template #suffixIcon><span class="material-symbols-outlined">tune</span></template></it-input>
   </div>
+
+  <div class="perm mt">
+      <div class="sp2">get permissions ?</div>
+      <it-switch class="swch" v-model="getPermissions" label=""  />
+  </div>
 </div>
 <div v-show="(step==2)" class="input">
   <div class="iii">
@@ -47,7 +52,7 @@
    
 
  
-    <div class="swchc">
+    <div>
       <div class="sp">terminal ?</div>
       <it-switch class="swch" v-model="is_terminal" label=""  />
     </div>
@@ -77,7 +82,10 @@
     <it-checkbox variant="primary" label="menu" v-model="menu" />
     <it-checkbox variant="primary" label="desktop" v-model="desktop" />
 
+  </div>
 
+  <div class="mt">
+    <it-input v-model="comment" label-top="comment" placeholder="comment" mask></it-input>
   </div>
 </div>
 
@@ -179,6 +187,11 @@ bottom: 1rem;
 .sp1{
   margin-bottom: .5rem;
 }
+
+.sp2{
+  margin-bottom: .5rem;
+  font-size: .9rem;
+}
 .path{
 
 }
@@ -197,6 +210,17 @@ bottom: 1rem;
 }
 .iiiii{
   flex-grow: 1;
+}
+
+.mt{
+  margin-top: 5rem;
+}
+
+.perm{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: auto;
 }
 
 
@@ -258,6 +282,8 @@ bottom: 1rem;
 
 
     const imgUrl=ref('')
+    const comment=ref('')
+    const getPermissions=ref(true)
     const menu=ref(true)
     const desktop=ref(true)
     const name=ref('');
@@ -315,8 +341,8 @@ bottom: 1rem;
     async function confirm(){
       if (menu.value && desktop.value){places.value='menu;desktop'} else if (menu){places.value='menu'} else if (desktop){places.value='desktop'} else{places.value=''}
       var categs = categories.value.join(';');
-      await eel.make(name.value,filePath.value,iconPath.value,interpreterPath.value,cmd.value,ccmd.value,typ.value,runner.value,is_terminal.value,categs,places.value,argv.value)();
-      name.value='';filePath.value='';iconPath.value='';interpreterPath.value='';cmd.value='defaults';ccmd.value='';typ.value='binary';runner.value='bash';is_terminal.value=false;categories.value=[];places.value='menu;desktop',argv.value='';
+      await eel.make(name.value,filePath.value,iconPath.value,interpreterPath.value,cmd.value,ccmd.value,typ.value,runner.value,is_terminal.value,categs,places.value,argv.value,comment.value,getPermissions.value)();
+      name.value='';filePath.value='';iconPath.value='';interpreterPath.value='';cmd.value='defaults';ccmd.value='';typ.value='binary';runner.value='bash';is_terminal.value=false;categories.value=[];places.value='menu;desktop',argv.value='';comment.value='';getPermissions.value=true;
       step.value=1;
       await init()
     }
