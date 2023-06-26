@@ -47,14 +47,16 @@
     
 
 
-    <it-select v-show="typ=='script'&&cmd=='defaults'" class="select" label-top="type" v-model="runner" :options="runners"/>
+    <it-select v-show="typ=='script'&&cmd=='defaults'" class="select" label-top="script type" v-model="runner" :options="runners"/>
     
    
 
  
     <div>
       <div class="sp">terminal ?</div>
-      <it-switch class="swch" v-model="is_terminal" label=""  />
+      <div class="terminal">
+        <it-switch class="swch" v-model="is_terminal" label=""  />
+      </div>
     </div>
     
   </div >
@@ -222,7 +224,11 @@ bottom: 1rem;
   align-items: flex-start;
   margin-right: auto;
 }
-
+.terminal{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 
@@ -320,7 +326,20 @@ bottom: 1rem;
 
 
     function back(){step.value=Math.max(1,step.value-1);}
-    function next(){step.value=Math.min(allowedStep(),step.value+1);}
+    function next(){
+      step.value=Math.min(allowedStep(),step.value+1);
+      if (step.value<3){
+      cmd.value='defaults';
+      if (!filePath.value.includes('.') || filePath.value.endsWith('.bin') || filePath.value.endsWith('.AppImage')){
+        typ.value='binary';
+      }
+      else{
+        typ.value='script';
+        if (filePath.value.endsWith('.py'))runner.value='python';else if (filePath.value.endsWith('.bash'))runner.value='bash';else if (filePath.value.endsWith('.xonsh'))runner.value='xonsh';else if (filePath.value.endsWith('.zsh'))runner.value='zsh';else if (filePath.value.endsWith('.enaml'))runner.value='enaml';else if (filePath.value.endsWith('.fish'))runner.value='fish';else if (filePath.value.endsWith('.sh'))runner.value='sh';else cmd.value='custom command';
+      }
+      if (filePath.value.endsWith('.bash')||filePath.value.endsWith('.xonsh')||filePath.value.endsWith('.sh')||filePath.value.endsWith('.zsh')||filePath.value.endsWith('.fish'))is_terminal.value=true;else is_terminal.value=false;
+    }
+    }
     
     async function addApp(){
       filePath.value = await eel.getFilePath(filePath.value)();
