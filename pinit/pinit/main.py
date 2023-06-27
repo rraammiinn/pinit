@@ -55,6 +55,12 @@ def upgrade():
 def update():
     upgrade()
 
+def create():
+    try:
+        os.chdir(dist)
+        subprocess.run(['venv/bin/python', 'cli.py'])
+    except:
+        pass
 
 def open():
     try:
@@ -71,6 +77,8 @@ def help():
     print('update')
     print('upgrade --force')
     print('update --force')
+    print('open')
+    print('create')
     print('..................................................')
 ###########################################################################################################
 def main():
