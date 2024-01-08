@@ -66,7 +66,7 @@ def make(
     places,
     argv,
     comment,
-    getPermissions
+    getPermissions,
 ):
     runners["python"] = (
         interpreterPath.removesuffix("/bin") + "/bin/python"
@@ -85,7 +85,7 @@ def make(
             icon=iconPath,
             terminal=is_terminal,
             categories=categories,
-            comment=comment
+            comment=comment,
         )
     if "desktop" in places:
         createDesktopShortCut(
@@ -94,12 +94,12 @@ def make(
             icon=iconPath,
             terminal=is_terminal,
             categories=categories,
-            comment=comment
+            comment=comment,
         )
 
     if getPermissions:
         try:
-            subprocess.run(['chmod', 'a+rwx', filePath])
+            subprocess.run(["chmod", "a+rwx", filePath])
         except:
             pass
 
@@ -251,4 +251,4 @@ if __name__ == "__main__":
     except:
         pass
 
-    eel.start("index.html", size=(300, 690), position=(800, 200))
+    eel.start("index.html", size=(330, 690), position=(800, 200))

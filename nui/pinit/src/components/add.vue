@@ -358,7 +358,7 @@ bottom: 1rem;
     }
 
     async function confirm(){
-      if (menu.value && desktop.value){places.value='menu;desktop'} else if (menu){places.value='menu'} else if (desktop){places.value='desktop'} else{places.value=''}
+      if (menu.value && desktop.value){places.value='menu;desktop'} else if (menu.value){places.value='menu'} else if (desktop.value){places.value='desktop'} else{places.value=''}
       var categs = categories.value.join(';');
       await eel.make(name.value,filePath.value,iconPath.value,interpreterPath.value,cmd.value,ccmd.value,typ.value,runner.value,is_terminal.value,categs,places.value,argv.value,comment.value,getPermissions.value)();
       name.value='';filePath.value='';iconPath.value='';interpreterPath.value='';cmd.value='defaults';ccmd.value='';typ.value='binary';runner.value='bash';is_terminal.value=false;categories.value=[];places.value='menu;desktop',argv.value='';comment.value='';getPermissions.value=true;
